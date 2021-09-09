@@ -1,16 +1,28 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Button} from '../../components';
+import {useDispatch, useSelector} from 'react-redux';
+import {Button, Gap} from '../../components';
+import {getProfile} from '../../redux/action/profile';
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const {token} = useSelector<any, any>(state => state.auth);
+  const {dataProfile} = useSelector<any, any>(state => state.profile);
+  useEffect(() => {
+    dispatch(getProfile(token));
+  }, []);
+  const onPressBtn = () => {
+    dispatch({type: 'GET_TOKEN', payload: null});
+  };
   return (
     <View style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.textContent}>Selamat Datang</Text>
-        <Text style={styles.textContent}>Rahadian</Text>
+        <Gap height={20} />
+        <Text style={styles.textContent}>{dataProfile.name}</Text>
       </View>
       <View style={styles.wrapperButton}>
-        <Button title="Signout" />
+        <Button onPress={onPressBtn} title="Signout" />
       </View>
     </View>
   );
@@ -32,6 +44,7 @@ const styles = StyleSheet.create({
   textContent: {
     fontSize: 24,
     fontWeight: 'bold',
+    textTransform: 'capitalize',
   },
   wrapperButton: {
     marginVertical: 30,

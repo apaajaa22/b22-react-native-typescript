@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {Button, Gap, Header, Input, Link} from '../../components';
+import {Login as LoginAction} from '../../redux/action/auth';
 
 interface LoginProps {
   navigation?: any;
@@ -20,7 +21,7 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
 
   const onSubmit = () => {
     console.log(form);
-    dispatch(Login(form));
+    dispatch(LoginAction(form));
   };
   return (
     <View style={styles.container}>
@@ -57,7 +58,6 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
     </View>
   );
 };
-
 export default Login;
 
 const styles = StyleSheet.create({
