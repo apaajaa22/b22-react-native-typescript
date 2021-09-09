@@ -6,7 +6,6 @@ const Stack = createStackNavigator();
 
 const Router = () => {
   const {token} = useSelector<any, any>(state => state.auth);
-  console.log(token);
   return (
     <Stack.Navigator initialRouteName="WelcomePage">
       {token === null ? (

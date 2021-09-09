@@ -1,3 +1,4 @@
+import ToastMessage from '../../components/ToastMessage';
 import http from '../../helpers/http';
 const API_URL = 'http://localhost:8080';
 
@@ -7,7 +8,7 @@ export const getProfile = (token: null | undefined) => {
       const {data: newData} = await http(token).get(`${API_URL}/user/login`);
       dispatch({type: 'GET_PROFILE', payload: newData.data});
     } catch (err: any) {
-      console.log(err.response.data);
+      ToastMessage(err.response.data.message);
     }
   };
 };

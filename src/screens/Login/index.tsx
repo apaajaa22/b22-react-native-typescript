@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {LogBox, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {Button, Gap, Header, Input, Link} from '../../components';
 import {Login as LoginAction} from '../../redux/action/auth';
+LogBox.ignoreAllLogs();
 
 interface LoginProps {
   navigation?: any;
@@ -20,7 +21,6 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
   };
 
   const onSubmit = () => {
-    console.log(form);
     dispatch(LoginAction(form));
   };
   return (

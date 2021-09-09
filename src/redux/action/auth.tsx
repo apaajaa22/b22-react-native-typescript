@@ -12,7 +12,6 @@ export const Login = (data: {email: string; password: string}) => {
       dispatch({type: 'GET_TOKEN', payload: newData.data.token});
       ToastMessage('Login Success' || newData.data.message, 'success');
     } catch (err: any) {
-      console.log(err.response.data);
       ToastMessage(err.response.data.message);
     }
   };
