@@ -1,11 +1,11 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {ForgotPassword, Login, Register} from '../screens';
+import {ForgotPassword, Home, Login, Register, WelcomePage} from '../screens';
 const Stack = createStackNavigator();
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="Register">
+    <Stack.Navigator initialRouteName="WelcomePage">
       <Stack.Screen
         name="Register"
         component={Register}
@@ -19,6 +19,16 @@ const Router = () => {
       <Stack.Screen
         name="ForgotPassword"
         component={ForgotPassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="WelcomePage"
+        component={WelcomePage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Home"
+        component={Home}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

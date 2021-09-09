@@ -1,19 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {useDispatch} from 'react-redux';
 import {Button, Gap, Header, Input, Link} from '../../components';
 
 interface LoginProps {
-  navigation: any;
+  navigation?: any;
+  email: string;
+  password: string;
 }
 const Login: React.FC<LoginProps> = ({navigation}) => {
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const form = {
+    email,
+    password,
+  };
+
+  const onSubmit = () => {
+    console.log(form);
+    dispatch(Login(form));
+  };
   return (
     <View style={styles.container}>
       <Header onPress={() => navigation.goBack()} title="Login" />
       <ScrollView>
         <Gap height={30} />
         <View style={styles.containerContent}>
-          <Input label="Email" placeholder="Please input your email" />
           <Input
+            value={email}
+            onChangeText={setEmail}
+            label="Email"
+            placeholder="Please input your email"
+          />
+          <Input
+            value={password}
+            onChangeText={setPassword}
             secureTextEntry
             label="Password"
             placeholder="Please input your password"
@@ -23,7 +46,7 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
             title="Forgot password ?"
           />
           <Gap height={20} />
-          <Button title="Login" />
+          <Button title="Login" onPress={onSubmit} />
           <Text style={styles.or}>or</Text>
           <Button
             onPress={() => navigation.navigate('Register')}

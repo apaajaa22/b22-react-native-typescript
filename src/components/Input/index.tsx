@@ -5,13 +5,23 @@ interface InputProps {
   label: string;
   placeholder?: string;
   secureTextEntry?: boolean;
+  onChangeText?: any;
+  value?: string;
 }
 
-const Input: React.FC<InputProps> = ({label, placeholder, secureTextEntry}) => {
+const Input: React.FC<InputProps> = ({
+  label,
+  placeholder,
+  secureTextEntry,
+  onChangeText,
+  value,
+}) => {
   return (
     <View>
       <Text style={styles.label}>{label}</Text>
       <TextInput
+        value={value}
+        onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         placeholder={placeholder}
         style={styles.TextInput}
