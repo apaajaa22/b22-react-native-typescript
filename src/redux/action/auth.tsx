@@ -16,3 +16,29 @@ export const Login = (data: {email: string; password: string}) => {
     }
   };
 };
+
+export const Register = (
+  data: {
+    name: string;
+    email: string;
+    password: string;
+  },
+  navigation: any,
+) => {
+  return async (dispatch: any) => {
+    const form = new URLSearchParams();
+    form.append('name', data.name);
+    form.append('email', data.email);
+    form.append('password', data.password);
+    try {
+      const {data: newData} = await http().post(
+        `${API_URL}/auth/register`,
+        form,
+      );
+      navigation.navigate('Login');
+      ToastMessage('Register Success', 'success');
+    } catch (err: any) {
+      ToastMessage(err.response.data.message);
+    }
+  };
+};
