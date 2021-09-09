@@ -1,12 +1,16 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 interface LinkProps {
   title: string;
+  onPress?: any;
 }
-const Link: React.FC<LinkProps> = ({title}) => {
+const Link: React.FC<LinkProps> = ({title, onPress}) => {
   return (
-    <TouchableOpacity activeOpacity={0.7} style={styles.container}>
+    <TouchableOpacity
+      onPress={onPress}
+      activeOpacity={0.7}
+      style={styles.container}>
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );

@@ -3,10 +3,14 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 interface ButtonProps {
   title: string;
+  onPress?(): void;
 }
-const Button: React.FC<ButtonProps> = ({title}) => {
+const Button: React.FC<ButtonProps> = ({title, onPress}) => {
   return (
-    <TouchableOpacity activeOpacity={0.7} style={styles.container}>
+    <TouchableOpacity
+      onPress={onPress}
+      activeOpacity={0.7}
+      style={styles.container}>
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );

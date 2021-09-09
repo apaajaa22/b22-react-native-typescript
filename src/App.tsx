@@ -1,8 +1,13 @@
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {ForgotPassword, Login, Register} from './screens';
+import Router from './Router';
 
 const App = () => {
-  return <Register />;
+  return (
+    <NavigationContainer>
+      <Router />
+    </NavigationContainer>
+  );
 };
 
 export default App;
