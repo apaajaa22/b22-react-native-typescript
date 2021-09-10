@@ -3,6 +3,7 @@ import http from '../../helpers/http';
 import {API_URL} from '@env';
 
 export const getProfile = (token: null | undefined) => {
+  console.log(API_URL);
   return async (dispatch: (arg0: {type: string; payload: any}) => void) => {
     dispatch({type: 'SET_LOADING', payload: true});
     try {

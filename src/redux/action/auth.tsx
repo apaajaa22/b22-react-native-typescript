@@ -4,6 +4,7 @@ import http from '../../helpers/http';
 import {API_URL} from '@env';
 
 export const Login = (data: {email: string; password: string}) => {
+  console.log(API_URL);
   return async (dispatch: (arg0: {type: string; payload: any}) => void) => {
     dispatch({type: 'SET_LOADING', payload: true});
     const form = new URLSearchParams();
