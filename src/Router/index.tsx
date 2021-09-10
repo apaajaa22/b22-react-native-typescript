@@ -1,6 +1,13 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {ForgotPassword, Home, Login, Register, WelcomePage} from '../screens';
+import {
+  ChangeForgotPassword,
+  ForgotPassword,
+  Home,
+  Login,
+  Register,
+  WelcomePage,
+} from '../screens';
 import {useSelector} from 'react-redux';
 const Stack = createStackNavigator();
 
@@ -23,6 +30,11 @@ const Router = () => {
           <Stack.Screen
             name="ForgotPassword"
             component={ForgotPassword}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="ChangeForgotPassword"
+            component={ChangeForgotPassword}
             options={{headerShown: false}}
           />
           <Stack.Screen

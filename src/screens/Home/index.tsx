@@ -12,7 +12,9 @@ const Home = () => {
     dispatch(getProfile(token));
   }, []);
   const onPressBtn = () => {
+    dispatch({type: 'SET_LOADING', payload: true});
     dispatch({type: 'GET_TOKEN', payload: null});
+    dispatch({type: 'SET_LOADING', payload: false});
   };
   return (
     <View style={styles.container}>
