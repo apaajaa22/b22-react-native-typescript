@@ -1,6 +1,6 @@
 import ToastMessage from '../../components/ToastMessage';
 import http from '../../helpers/http';
-const API_URL = 'http://localhost:8080';
+import {API_URL} from '@env';
 
 export const getProfile = (token: null | undefined) => {
   return async (dispatch: (arg0: {type: string; payload: any}) => void) => {

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import ToastMessage from '../../components/ToastMessage';
 import http from '../../helpers/http';
-const API_URL = 'http://localhost:8080';
+import {API_URL} from '@env';
 
 export const Login = (data: {email: string; password: string}) => {
   return async (dispatch: (arg0: {type: string; payload: any}) => void) => {
