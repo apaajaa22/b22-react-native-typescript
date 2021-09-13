@@ -1,4 +1,4 @@
-# React JS - React_Native - Auth Flow App
+# React_Native - Auth Flow App
 
 <img src="https://user-images.githubusercontent.com/59022153/133026229-2a7cb7e6-02bc-4908-99d2-fb9c63ed9c81.png" width="250" height="500" />  <img src="https://user-images.githubusercontent.com/59022153/133026290-c58c3505-dafe-4274-8afa-4154b3b697ef.png" width="250" height="500" />   <img src="https://user-images.githubusercontent.com/59022153/133026305-d70b8fa9-892d-4a94-a31d-d3c094b14f1a.png" width="250" height="500" />   
 
